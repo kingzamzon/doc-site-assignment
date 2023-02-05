@@ -1,6 +1,6 @@
 ---
 slug: long-blog-post
-title: Long Blog Post
+title: calculator app built using HMTL, CSS, and Javascript
 authors: endi
 tags: [hello, docusaurus]
 ---
