@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# operators
+# Operators
 
 The Assignment Operator (=) assigns a value to a variable.
 
@@ -86,3 +86,20 @@ x += 5;
 | /=       | x /= y    | x = x / y    |
 | %=       | x %= y    | x = x % y    |
 | \*\*=    | x \*\*= y | x = x \*\* y |
+
+## JavaScript Logical Operators
+
+```
+| Operator | Description |
+| -------- | ----------- |
+| &&       | logical and |
+| ||       | logical or  |
+| !        | logical not |
+```
+
+## JavaScript Type Operators
+
+| Operator   | Description                                                |
+| ---------- | ---------------------------------------------------------- |
+| typeof     | Returns the type of a variable                             |
+| instanceof | Returns true if an object is an instance of an object type |

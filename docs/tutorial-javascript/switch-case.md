@@ -4,85 +4,156 @@ sidebar_position: 7
 
 # Switch Case
 
-Let's translate `docs/intro.md` to French.
+The switch statement is used to perform different actions based on different conditions.
 
-## Configure i18n
+## The JavaScript Switch Statement
 
-Modify `docusaurus.config.js` to add support for the `fr` locale:
+Use the switch statement to select one of many code blocks to be executed.
 
-```js title="docusaurus.config.js"
-module.exports = {
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "fr"],
-  },
-};
+```js title="Syntax"
+switch (expression) {
+  case x:
+    // code block
+    break;
+  case y:
+    // code block
+    break;
+  default:
+  // code block
+}
 ```
 
-## Translate a doc
+This is how it works:
 
-Copy the `docs/intro.md` file to the `i18n/fr` folder:
+- The switch expression is evaluated once.
+- The value of the expression is compared with the values of each case.
+- If there is a match, the associated block of code is executed.
+- If there is no match, the default code block is executed.
 
-```bash
-mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
+## Example
 
-cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
+```js
+switch (new Date().getDay()) {
+  case 0:
+    day = "Sunday";
+    break;
+  case 1:
+    day = "Monday";
+    break;
+  case 2:
+    day = "Tuesday";
+    break;
+  case 3:
+    day = "Wednesday";
+    break;
+  case 4:
+    day = "Thursday";
+    break;
+  case 5:
+    day = "Friday";
+    break;
+  case 6:
+    day = "Saturday";
+}
 ```
 
-Translate `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` in French.
+## The break Keyword
 
-## Start your localized site
+When JavaScript reaches a `break` keyword, it breaks out of the switch block.
 
-Start your site on the French locale:
+This will stop the execution inside the switch block.
 
-```bash
-npm run start -- --locale fr
-```
+It is not necessary to break the last case in a switch block. The block breaks (ends) there anyway.
 
-Your localized site is accessible at [http://localhost:3000/fr/](http://localhost:3000/fr/) and the `Getting Started` page is translated.
-
-:::caution
-
-In development, you can only use one locale at a same time.
-
+:::note
+If you omit the break statement, the next case will be executed even if the evaluation does not match the case.
 :::
 
-## Add a Locale Dropdown
+## The default Keyword
 
-To navigate seamlessly across languages, add a locale dropdown.
+The default keyword specifies the code to run if there is no case match:
 
-Modify the `docusaurus.config.js` file:
-
-```js title="docusaurus.config.js"
-module.exports = {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: "localeDropdown",
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
+```js
+switch (new Date().getDay()) {
+  case 6:
+    text = "Today is Saturday";
+    break;
+  case 0:
+    text = "Today is Sunday";
+    break;
+  default:
+    text = "Looking forward to the Weekend";
+}
 ```
 
-The locale dropdown now appears in your navbar:
+The `default` case does not have to be the last case in a switch block:
 
-![Locale Dropdown](./img/localeDropdown.png)
-
-## Build your localized site
-
-Build your site for a specific locale:
-
-```bash
-npm run build -- --locale fr
+```js
+switch (new Date().getDay()) {
+  default:
+    text = "Looking forward to the Weekend";
+    break;
+  case 6:
+    text = "Today is Saturday";
+    break;
+  case 0:
+    text = "Today is Sunday";
+}
 ```
 
-Or build your site to include all the locales at once:
+:::note
+If default is not the last case in the switch block, remember to end the default case with a break.
+:::
 
-```bash
-npm run build
+## Common Code Blocks
+
+Sometimes you will want different switch cases to use the same code.
+
+In this example case 4 and 5 share the same code block, and 0 and 6 share another code block:
+
+```js
+switch (new Date().getDay()) {
+  case 4:
+  case 5:
+    text = "Soon it is Weekend";
+    break;
+  case 0:
+  case 6:
+    text = "It is Weekend";
+    break;
+  default:
+    text = "Looking forward to the Weekend";
+}
+```
+
+## Switching Details
+
+If multiple cases matches a case value, the **first** case is selected.
+
+If no matching cases are found, the program continues to the **default** label.
+
+If no default label is found, the program continues to the statement(s) **after the switch**.
+
+## Strict Comparison
+
+Switch cases use **strict** comparison (===).
+
+The values must be of the same type to match.
+
+A strict comparison can only be true if the operands are of the same type.
+
+In this example there will be no match for x:
+
+```js
+let x = "0";
+switch (x) {
+  case 0:
+    text = "Off";
+    break;
+  case 1:
+    text = "On";
+    break;
+  default:
+    text = "No value found";
+}
 ```

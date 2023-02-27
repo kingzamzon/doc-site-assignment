@@ -2,87 +2,83 @@
 sidebar_position: 12
 ---
 
-# events
+# Events
 
-Let's translate `docs/intro.md` to French.
+HTML events are **"things"** that happen to HTML elements.
 
-## Configure i18n
+When JavaScript is used in HTML pages, JavaScript can **"react"** on these events.
 
-Modify `docusaurus.config.js` to add support for the `fr` locale:
+## HTML Events
 
-```js title="docusaurus.config.js"
-module.exports = {
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "fr"],
-  },
-};
+An HTML event can be something the browser does, or something a user does.
+
+Here are some examples of HTML events:
+
+- An HTML web page has finished loading
+- An HTML input field was changed
+- An HTML button was clicked
+
+Often, when events happen, you may want to do something.
+
+JavaScript lets you execute code when events are detected.
+
+HTML allows event handler attributes, **with JavaScript code**, to be added to HTML elements.
+
+With single quotes:
+
+```js
+<element event='some JavaScript'>
 ```
 
-## Translate a doc
+With double quotes:
 
-Copy the `docs/intro.md` file to the `i18n/fr` folder:
-
-```bash
-mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
-
-cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
+```js
+<element event="some JavaScript">
 ```
 
-Translate `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` in French.
+In the following example, an onclick attribute (with code), is added to a `<button>` element:
 
-## Start your localized site
-
-Start your site on the French locale:
-
-```bash
-npm run start -- --locale fr
+```js
+<button onclick="document.getElementById('demo').innerHTML = Date()">
+  The time is?
+</button>
 ```
 
-Your localized site is accessible at [http://localhost:3000/fr/](http://localhost:3000/fr/) and the `Getting Started` page is translated.
+In the example above, the JavaScript code changes the content of the element with id="demo".
 
-:::caution
+In the next example, the code changes the content of its own element (using `this.innerHTML`):
 
-In development, you can only use one locale at a same time.
-
-:::
-
-## Add a Locale Dropdown
-
-To navigate seamlessly across languages, add a locale dropdown.
-
-Modify the `docusaurus.config.js` file:
-
-```js title="docusaurus.config.js"
-module.exports = {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: "localeDropdown",
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
+```js
+<button onclick="this.innerHTML = Date()">The time is?</button>
 ```
 
-The locale dropdown now appears in your navbar:
+## Common HTML Events
 
-![Locale Dropdown](./img/localeDropdown.png)
+Here is a list of some common HTML events:
 
-## Build your localized site
+| Event       | Description                                        |
+| ----------- | -------------------------------------------------- |
+| onchange    | An HTML element has been changed                   |
+| onclick     | The user clicks an HTML element                    |
+| onmouseover | The user moves the mouse over an HTML element      |
+| onmouseout  | The user moves the mouse away from an HTML element |
+| onkeydown   | The user pushes a keyboard key                     |
+| onload      | The browser has finished loading the page          |
 
-Build your site for a specific locale:
+## JavaScript Event Handlers
 
-```bash
-npm run build -- --locale fr
-```
+Event handlers can be used to handle and verify user input, user actions, and browser actions:
 
-Or build your site to include all the locales at once:
+- Things that should be done every time a page loads
+- Things that should be done when the page is closed
+- Action that should be performed when a user clicks a button
+- Content that should be verified when a user inputs data
+- And more ...
 
-```bash
-npm run build
-```
+Many different methods can be used to let JavaScript work with events:
+
+- HTML event attributes can execute JavaScript code directly
+- HTML event attributes can call JavaScript functions
+- You can assign your own event handler functions to HTML elements
+- You can prevent events from being sent or being handled
+- And more ...

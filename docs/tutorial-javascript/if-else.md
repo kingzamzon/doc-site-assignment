@@ -4,85 +4,87 @@ sidebar_position: 6
 
 # if else
 
-Let's translate `docs/intro.md` to French.
+Conditional statements are used to perform different actions based on different conditions.
 
-## Configure i18n
+## Conditional Statements
 
-Modify `docusaurus.config.js` to add support for the `fr` locale:
+Very often when you write code, you want to perform different actions for different decisions.
 
-```js title="docusaurus.config.js"
-module.exports = {
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "fr"],
-  },
-};
+You can use conditional statements in your code to do this.
+
+In JavaScript we have the following conditional statements:
+
+- Use `if` to specify a block of code to be executed, if a specified condition is true
+- Use `else` to specify a block of code to be executed, if the same condition is false
+- Use `else` if to specify a new condition to test, if the first condition is false
+- Use `switch` to specify many alternative blocks of code to be executed
+
+## The if Statement
+
+Use the if statement to specify a block of JavaScript code to be executed if a condition is true.
+
+```js title="Syntax"
+if (condition) {
+  //  block of code to be executed if the condition is true
+}
 ```
 
-## Translate a doc
+:::note
 
-Copy the `docs/intro.md` file to the `i18n/fr` folder:
-
-```bash
-mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
-
-cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
-```
-
-Translate `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` in French.
-
-## Start your localized site
-
-Start your site on the French locale:
-
-```bash
-npm run start -- --locale fr
-```
-
-Your localized site is accessible at [http://localhost:3000/fr/](http://localhost:3000/fr/) and the `Getting Started` page is translated.
-
-:::caution
-
-In development, you can only use one locale at a same time.
+`if` is in lowercase letters. Uppercase letters (If or IF) will generate a JavaScript error.
 
 :::
 
-## Add a Locale Dropdown
-
-To navigate seamlessly across languages, add a locale dropdown.
-
-Modify the `docusaurus.config.js` file:
-
-```js title="docusaurus.config.js"
-module.exports = {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: "localeDropdown",
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
+```js title="Make a 'Good day' greeting if the hour is less than 18:00:"
+if (hour < 18) {
+  greeting = "Good day";
+}
 ```
 
-The locale dropdown now appears in your navbar:
+## The else Statement
 
-![Locale Dropdown](./img/localeDropdown.png)
+Use the else statement to specify a block of code to be executed if the condition is false.
 
-## Build your localized site
-
-Build your site for a specific locale:
-
-```bash
-npm run build -- --locale fr
+```js
+if (condition) {
+  //  block of code to be executed if the condition is true
+} else {
+  //  block of code to be executed if the condition is false
+}
 ```
 
-Or build your site to include all the locales at once:
+## Example
 
-```bash
-npm run build
+```js title="If the hour is less than 18, create a 'Good day' greeting, otherwise 'Good evening':"
+if (hour < 18) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}
+```
+
+## The else if Statement
+
+Use the else if statement to specify a new condition if the first condition is false.
+
+```js title="Syntax"
+if (condition1) {
+  //  block of code to be executed if condition1 is true
+} else if (condition2) {
+  //  block of code to be executed if the condition1 is false and condition2 is true
+} else {
+  //  block of code to be executed if the condition1 is false and condition2 is false
+}
+```
+
+## Example
+
+```js title="If time is less than 10:00, create a 'Good morning' greeting, if not, but time is less than 20:00, create a 'Good day' greeting, otherwise a 'Good evening':"
+if (time < 10) {
+  greeting = "Good morning";
+} else if (time < 20) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}
 ```

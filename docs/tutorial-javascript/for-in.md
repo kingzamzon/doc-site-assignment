@@ -4,85 +4,91 @@ sidebar_position: 10
 
 # For In
 
-Let's translate `docs/intro.md` to French.
+The JavaScript `for in` statement loops through the properties of an Object:
 
-## Configure i18n
-
-Modify `docusaurus.config.js` to add support for the `fr` locale:
-
-```js title="docusaurus.config.js"
-module.exports = {
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "fr"],
-  },
-};
+```js title="Syntax"
+for (key in object) {
+  // code block to be executed
+}
 ```
 
-## Translate a doc
+## Example
 
-Copy the `docs/intro.md` file to the `i18n/fr` folder:
+```js
+const person = { fname: "John", lname: "Doe", age: 25 };
 
-```bash
-mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
-
-cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
+let text = "";
+for (let x in person) {
+  text += person[x];
+}
 ```
 
-Translate `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` in French.
+## Example Explained
 
-## Start your localized site
+- The **for in** loop iterates over a **person** object
+- Each iteration returns a **key (x)**
+- The key is used to access the **value** of the key
+- The value of the key is **person[x]**
 
-Start your site on the French locale:
+## For In Over Arrays
 
-```bash
-npm run start -- --locale fr
+The JavaScript `for in` statement can also loop over the properties of an Array:
+
+```js title="Syntax"
+for (variable in array) {
+  code;
+}
 ```
 
-Your localized site is accessible at [http://localhost:3000/fr/](http://localhost:3000/fr/) and the `Getting Started` page is translated.
+## Example
 
-:::caution
+```js
+const numbers = [45, 4, 9, 16, 25];
 
-In development, you can only use one locale at a same time.
+let txt = "";
+for (let x in numbers) {
+  txt += numbers[x];
+}
+```
 
+:::note
+Do not use **for in** over an Array if the index **order** is important.
+
+The index order is implementation-dependent, and array values may not be accessed in the order you expect.
+
+It is better to use a **for** loop, a **for of** loop, or **Array.forEach()** when the order is important.
 :::
 
-## Add a Locale Dropdown
+## Array.forEach()
 
-To navigate seamlessly across languages, add a locale dropdown.
+The `forEach()` method calls a function (a callback function) once for each array element.
 
-Modify the `docusaurus.config.js` file:
+```js
+const numbers = [45, 4, 9, 16, 25];
 
-```js title="docusaurus.config.js"
-module.exports = {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: "localeDropdown",
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
+let txt = "";
+numbers.forEach(myFunction);
+
+function myFunction(value, index, array) {
+  txt += value;
+}
 ```
 
-The locale dropdown now appears in your navbar:
+Note that the function takes 3 arguments:
 
-![Locale Dropdown](./img/localeDropdown.png)
+- The item value
+- The item index
+- The array itself
 
-## Build your localized site
+The example above uses only the value parameter. It can be rewritten to:
 
-Build your site for a specific locale:
+```js
+const numbers = [45, 4, 9, 16, 25];
 
-```bash
-npm run build -- --locale fr
-```
+let txt = "";
+numbers.forEach(myFunction);
 
-Or build your site to include all the locales at once:
-
-```bash
-npm run build
+function myFunction(value) {
+  txt += value;
+}
 ```

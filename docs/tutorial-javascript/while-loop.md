@@ -4,85 +4,54 @@ sidebar_position: 8
 
 # While Loop
 
-Let's translate `docs/intro.md` to French.
+Loops can execute a block of code as long as a specified condition is true.
 
-## Configure i18n
+## The While Loop
 
-Modify `docusaurus.config.js` to add support for the `fr` locale:
+The while loop loops through a block of code as long as a specified condition is true.
 
-```js title="docusaurus.config.js"
-module.exports = {
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "fr"],
-  },
-};
+```js title="Syntax"
+while (condition) {
+  // code block to be executed
+}
 ```
 
-## Translate a doc
+## Example
 
-Copy the `docs/intro.md` file to the `i18n/fr` folder:
+In the following example, the code in the loop will run, over and over again, as long as a variable (i) is less than 10:
 
-```bash
-mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
-
-cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
+```js
+while (i < 10) {
+  text += "The number is " + i;
+  i++;
+}
 ```
 
-Translate `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` in French.
-
-## Start your localized site
-
-Start your site on the French locale:
-
-```bash
-npm run start -- --locale fr
-```
-
-Your localized site is accessible at [http://localhost:3000/fr/](http://localhost:3000/fr/) and the `Getting Started` page is translated.
-
-:::caution
-
-In development, you can only use one locale at a same time.
-
+:::note
+If you forget to increase the variable used in the condition, the loop will never end. This will crash your browser.
 :::
 
-## Add a Locale Dropdown
+## The Do While Loop
 
-To navigate seamlessly across languages, add a locale dropdown.
+The `do while` loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true.
 
-Modify the `docusaurus.config.js` file:
-
-```js title="docusaurus.config.js"
-module.exports = {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: "localeDropdown",
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
+```js title="Syntax"
+do {
+  // code block to be executed
+} while (condition);
 ```
 
-The locale dropdown now appears in your navbar:
+## Example
 
-![Locale Dropdown](./img/localeDropdown.png)
+The example below uses a `do while` loop. The loop will always be executed at least once, even if the condition is false, because the code block is executed before the condition is tested:
 
-## Build your localized site
-
-Build your site for a specific locale:
-
-```bash
-npm run build -- --locale fr
+```js
+do {
+  text += "The number is " + i;
+  i++;
+} while (i < 10);
 ```
 
-Or build your site to include all the locales at once:
-
-```bash
-npm run build
-```
+:::note
+Do not forget to increase the variable used in the condition, otherwise the loop will never end!
+:::

@@ -2,87 +2,150 @@
 sidebar_position: 9
 ---
 
-# for loop
+# For loop
 
-Let's translate `docs/intro.md` to French.
+The for statement creates a loop with 3 optional expressions:
 
-## Configure i18n
-
-Modify `docusaurus.config.js` to add support for the `fr` locale:
-
-```js title="docusaurus.config.js"
-module.exports = {
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "fr"],
-  },
-};
+```js
+for (expression 1; expression 2; expression 3) {
+  // code block to be executed
+}
 ```
 
-## Translate a doc
+**Expression 1** is executed (one time) before the execution of the code block.
 
-Copy the `docs/intro.md` file to the `i18n/fr` folder:
+**Expression 2** defines the condition for executing the code block.
 
-```bash
-mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
+**Expression 3** is executed (every time) after the code block has been executed.
 
-cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
+```js
+for (let i = 0; i < 5; i++) {
+  text += "The number is " + i + "<br>";
+}
 ```
 
-Translate `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` in French.
+From the example above, you can read:
 
-## Start your localized site
+**Expression 1** sets a variable before the loop starts (let i = 0).
 
-Start your site on the French locale:
+**Expression 2** defines the condition for the loop to run (i must be less than 5).
 
-```bash
-npm run start -- --locale fr
+**Expression 3** increases a value (i++) each time the code block in the loop has been executed.
+
+## Expression 1
+
+Normally you will use expression 1 to initialize the variable used in the loop (let i = 0).
+
+This is not always the case. JavaScript doesn't care. Expression 1 is optional.
+
+You can initiate many values in expression 1 (separated by comma):
+
+```js
+for (let i = 0, len = cars.length, text = ""; i < len; i++) {
+  text += cars[i] + "<br>";
+}
 ```
 
-Your localized site is accessible at [http://localhost:3000/fr/](http://localhost:3000/fr/) and the `Getting Started` page is translated.
+And you can omit expression 1 (like when your values are set before the loop starts):
 
-:::caution
+```js
+let i = 2;
+let len = cars.length;
+let text = "";
+for (; i < len; i++) {
+  text += cars[i] + "<br>";
+}
+```
 
-In development, you can only use one locale at a same time.
+## Expression 2
 
+Often expression 2 is used to evaluate the condition of the initial variable.
+
+This is not always the case. JavaScript doesn't care. Expression 2 is also optional.
+
+If expression 2 returns true, the loop will start over again. If it returns false, the loop will end.
+
+:::note
+If you omit expression 2, you must provide a break inside the loop. Otherwise the loop will never end. This will crash your browser. Read about breaks in a later chapter of this tutorial.
 :::
 
-## Add a Locale Dropdown
+## Expression 3
 
-To navigate seamlessly across languages, add a locale dropdown.
+Often expression 3 increments the value of the initial variable.
 
-Modify the `docusaurus.config.js` file:
+This is not always the case. JavaScript doesn't care. Expression 3 is optional.
 
-```js title="docusaurus.config.js"
-module.exports = {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: "localeDropdown",
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
+Expression 3 can do anything like negative increment (i--), positive increment (i = i + 15), or anything else.
+
+Expression 3 can also be omitted (like when you increment your values inside the loop):
+
+```js
+let i = 0;
+let len = cars.length;
+let text = "";
+for (; i < len; ) {
+  text += cars[i] + "<br>";
+  i++;
+}
 ```
 
-The locale dropdown now appears in your navbar:
+## Loop Scope
 
-![Locale Dropdown](./img/localeDropdown.png)
+Using `var` in a loop:
 
-## Build your localized site
+```js
+var i = 5;
 
-Build your site for a specific locale:
+for (var i = 0; i < 10; i++) {
+  // some code
+}
 
-```bash
-npm run build -- --locale fr
+// Here i is 10
 ```
 
-Or build your site to include all the locales at once:
+Using `let` in a loop:
 
-```bash
-npm run build
+```js
+let i = 5;
+
+for (let i = 0; i < 10; i++) {
+  // some code
+}
+
+// Here i is 5
+```
+
+In the first example, using `var`, the variable declared in the loop redeclares the variable outside the loop.
+
+In the second example, using `let`, the variable declared in the loop does not redeclare the variable outside the loop.
+
+When `let` is used to declare the i variable in a loop, the i variable will only be visible within the loop.
+
+Comparing While and For
+If you have read the previous chapter, about the while loop, you will discover that a while loop is much the same as a for loop, with statement 1 and statement 3 omitted.
+
+The loop in this example uses a `for` loop to collect the car names from the cars array:
+
+```js
+const cars = ["BMW", "Volvo", "Saab", "Ford"];
+let i = 0;
+let text = "";
+
+for (; cars[i]; ) {
+  text += cars[i];
+  i++;
+}
+```
+
+The loop in this example uses a `while` loop to collect the car names from the cars array:
+
+```js
+const cars = ["BMW", "Volvo", "Saab", "Ford"];
+let i = 0;
+let text = "";
+
+while (cars[i]) {
+  text += cars[i];
+  i++;
+}
 ```
