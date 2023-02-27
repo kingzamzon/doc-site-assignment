@@ -4,20 +4,114 @@ sidebar_position: 9
 
 # Links
 
-You have just learned the **basics of Docusaurus** and made some changes to the **initial template**.
+With CSS, links can be styled in many different ways.
 
-Docusaurus has **much more to offer**!
+Styling Links
+Links can be styled with any CSS property (e.g. `color`, `font-family`, `background`, etc.).
 
-Have **5 more minutes**? Take a look at **[versioning](../tutorial-extras/manage-docs-versions.md)** and **[i18n](../tutorial-extras/translate-your-site.md)**.
+```css
+a {
+  color: hotpink;
+}
+```
 
-Anything **unclear** or **buggy** in this tutorial? [Please report it!](https://github.com/facebook/docusaurus/discussions/4610)
+In addition, links can be styled differently depending on what state they are in.
 
-## What's next?
+The four links states are:
 
-- Read the [official documentation](https://docusaurus.io/)
-- Modify your site configuration with [`docusaurus.config.js`](https://docusaurus.io/docs/api/docusaurus-config)
-- Add navbar and footer items with [`themeConfig`](https://docusaurus.io/docs/api/themes/configuration)
-- Add a custom [Design and Layout](https://docusaurus.io/docs/styling-layout)
-- Add a [search bar](https://docusaurus.io/docs/search)
-- Find inspirations in the [Docusaurus showcase](https://docusaurus.io/showcase)
-- Get involved in the [Docusaurus Community](https://docusaurus.io/community/support)
+- a:link - a normal, unvisited link
+- a:visited - a link the user has visited
+- a:hover - a link when the user mouses over it
+- a:active - a link the moment it is clicked
+
+```css
+/* unvisited link */
+a:link {
+  color: red;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+```
+
+When setting the style for several link states, there are some order rules:
+
+- a:hover MUST come after a:link and a:visited
+- a:active MUST come after a:hover
+
+## Text Decoration
+
+The `text-decoration` property is mostly used to remove underlines from links:
+
+```css
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+```
+
+## Background Color
+
+The `background-color` property can be used to specify a background color for links:
+
+```css
+a:link {
+  background-color: yellow;
+}
+
+a:visited {
+  background-color: cyan;
+}
+
+a:hover {
+  background-color: lightgreen;
+}
+
+a:active {
+  background-color: hotpink;
+}
+```
+
+## Link Buttons
+
+This example demonstrates a more advanced example where we combine several CSS properties to display links as boxes/buttons:
+
+```css
+a:link,
+a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover,
+a:active {
+  background-color: red;
+}
+```

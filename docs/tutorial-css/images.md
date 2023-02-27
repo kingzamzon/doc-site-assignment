@@ -4,20 +4,71 @@ sidebar_position: 8
 
 # Images
 
-You have just learned the **basics of Docusaurus** and made some changes to the **initial template**.
+CSS can be used to create an image gallery.
 
-Docusaurus has **much more to offer**!
+## Image Gallery
 
-Have **5 more minutes**? Take a look at **[versioning](../tutorial-extras/manage-docs-versions.md)** and **[i18n](../tutorial-extras/translate-your-site.md)**.
+The following image gallery is created with CSS:
 
-Anything **unclear** or **buggy** in this tutorial? [Please report it!](https://github.com/facebook/docusaurus/discussions/4610)
+```html
+<html>
+  <head>
+    <style>
+      div.gallery {
+        margin: 5px;
+        border: 1px solid #ccc;
+        float: left;
+        width: 180px;
+      }
 
-## What's next?
+      div.gallery:hover {
+        border: 1px solid #777;
+      }
 
-- Read the [official documentation](https://docusaurus.io/)
-- Modify your site configuration with [`docusaurus.config.js`](https://docusaurus.io/docs/api/docusaurus-config)
-- Add navbar and footer items with [`themeConfig`](https://docusaurus.io/docs/api/themes/configuration)
-- Add a custom [Design and Layout](https://docusaurus.io/docs/styling-layout)
-- Add a [search bar](https://docusaurus.io/docs/search)
-- Find inspirations in the [Docusaurus showcase](https://docusaurus.io/showcase)
-- Get involved in the [Docusaurus Community](https://docusaurus.io/community/support)
+      div.gallery img {
+        width: 100%;
+        height: auto;
+      }
+
+      div.desc {
+        padding: 15px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gallery">
+      <a target="_blank" href="img_5terre.jpg">
+        <img src="img_5terre.jpg" alt="Cinque Terre" width="600" height="400" />
+      </a>
+      <div class="desc">Add a description of the image here</div>
+    </div>
+
+    <div class="gallery">
+      <a target="_blank" href="img_forest.jpg">
+        <img src="img_forest.jpg" alt="Forest" width="600" height="400" />
+      </a>
+      <div class="desc">Add a description of the image here</div>
+    </div>
+
+    <div class="gallery">
+      <a target="_blank" href="img_lights.jpg">
+        <img
+          src="img_lights.jpg"
+          alt="Northern Lights"
+          width="600"
+          height="400"
+        />
+      </a>
+      <div class="desc">Add a description of the image here</div>
+    </div>
+
+    <div class="gallery">
+      <a target="_blank" href="img_mountains.jpg">
+        <img src="img_mountains.jpg" alt="Mountains" width="600" height="400" />
+      </a>
+      <div class="desc">Add a description of the image here</div>
+    </div>
+  </body>
+</html>
+```

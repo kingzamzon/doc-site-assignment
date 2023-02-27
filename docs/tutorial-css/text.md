@@ -4,20 +4,51 @@ sidebar_position: 7
 
 # Text
 
-You have just learned the **basics of Docusaurus** and made some changes to the **initial template**.
+CSS has a lot of properties for formatting text.
 
-Docusaurus has **much more to offer**!
+## Text Color
 
-Have **5 more minutes**? Take a look at **[versioning](../tutorial-extras/manage-docs-versions.md)** and **[i18n](../tutorial-extras/translate-your-site.md)**.
+The color property is used to set the color of the text. The color is specified by:
 
-Anything **unclear** or **buggy** in this tutorial? [Please report it!](https://github.com/facebook/docusaurus/discussions/4610)
+- a color name - like "red"
+- a HEX value - like "#ff0000"
+- an RGB value - like "rgb(255,0,0)"
 
-## What's next?
+The default text color for a page is defined in the body selector.
 
-- Read the [official documentation](https://docusaurus.io/)
-- Modify your site configuration with [`docusaurus.config.js`](https://docusaurus.io/docs/api/docusaurus-config)
-- Add navbar and footer items with [`themeConfig`](https://docusaurus.io/docs/api/themes/configuration)
-- Add a custom [Design and Layout](https://docusaurus.io/docs/styling-layout)
-- Add a [search bar](https://docusaurus.io/docs/search)
-- Find inspirations in the [Docusaurus showcase](https://docusaurus.io/showcase)
-- Get involved in the [Docusaurus Community](https://docusaurus.io/community/support)
+```css
+body {
+  color: blue;
+}
+
+h1 {
+  color: green;
+}
+```
+
+## Text Color and Background Color
+
+In this example, we define both the `background-color` property and the `color` property:
+
+```css
+body {
+  background-color: lightgrey;
+  color: blue;
+}
+
+h1 {
+  background-color: black;
+  color: white;
+}
+
+div {
+  background-color: blue;
+  color: white;
+}
+```
+
+:::important
+
+High contrast is very important for people with vision problems. So, always ensure that the contrast between the text color and the background color (or background image) is good!
+
+:::

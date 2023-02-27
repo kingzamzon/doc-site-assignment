@@ -4,20 +4,99 @@ sidebar_position: 14
 
 # Padding
 
-You have just learned the **basics of Docusaurus** and made some changes to the **initial template**.
+Padding is used to create space around an element's content, inside of any defined borders.
 
-Docusaurus has **much more to offer**!
+## CSS Padding
 
-Have **5 more minutes**? Take a look at **[versioning](../tutorial-extras/manage-docs-versions.md)** and **[i18n](../tutorial-extras/translate-your-site.md)**.
+The CSS padding properties are used to generate space around an element's content, inside of any defined borders.
 
-Anything **unclear** or **buggy** in this tutorial? [Please report it!](https://github.com/facebook/docusaurus/discussions/4610)
+With CSS, you have full control over the padding. There are properties for setting the padding for each side of an element (top, right, bottom, and left).
 
-## What's next?
+## Padding - Individual Sides
 
-- Read the [official documentation](https://docusaurus.io/)
-- Modify your site configuration with [`docusaurus.config.js`](https://docusaurus.io/docs/api/docusaurus-config)
-- Add navbar and footer items with [`themeConfig`](https://docusaurus.io/docs/api/themes/configuration)
-- Add a custom [Design and Layout](https://docusaurus.io/docs/styling-layout)
-- Add a [search bar](https://docusaurus.io/docs/search)
-- Find inspirations in the [Docusaurus showcase](https://docusaurus.io/showcase)
-- Get involved in the [Docusaurus Community](https://docusaurus.io/community/support)
+CSS has properties for specifying the padding for each side of an element:
+
+- padding-top
+- padding-right
+- padding-bottom
+- padding-left
+  All the padding properties can have the following values:
+
+- length - specifies a padding in px, pt, cm, etc.
+- % - specifies a padding in % of the width of the containing element
+- inherit - specifies that the padding should be inherited from the parent element
+
+:::note
+Negative values are not allowed.
+:::
+
+```css
+div {
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+}
+```
+
+## Padding - Shorthand Property
+
+To shorten the code, it is possible to specify all the padding properties in one property.
+
+The padding property is a shorthand property for the following individual padding properties:
+
+- padding-top
+- padding-right
+- padding-bottom
+- padding-left
+  So, here is how it works:
+
+If the padding property has four values:
+
+- padding: 25px 50px 75px 100px;
+  - top padding is 25px
+  - right padding is 50px
+  - bottom padding is 75px
+  - left padding is 100px
+
+```css
+div {
+  padding: 25px 50px 75px 100px;
+}
+```
+
+If the padding property has three values:
+
+- padding: 25px 50px 75px;
+  - top padding is 25px
+  - right and left paddings are 50px
+  - bottom padding is 75px
+
+```css
+div {
+  padding: 25px 50px 75px;
+}
+```
+
+If the padding property has two values:
+
+- padding: 25px 50px;
+  - top and bottom paddings are 25px
+  - right and left paddings are 50px
+
+```css
+div {
+  padding: 25px 50px;
+}
+```
+
+If the padding property has one value:
+
+- padding: 25px;
+  - all four paddings are 25px
+
+```css
+div {
+  padding: 25px;
+}
+```

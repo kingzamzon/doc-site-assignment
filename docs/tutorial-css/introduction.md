@@ -4,40 +4,38 @@ sidebar_position: 1
 
 # Introduction
 
-Add **Markdown or React** files to `src/pages` to create a **standalone page**:
+CSS is the language we use to style a Web page.
 
-- `src/pages/index.js` → `localhost:3000/`
-- `src/pages/foo.md` → `localhost:3000/foo`
-- `src/pages/foo/bar.js` → `localhost:3000/foo/bar`
+## What is CSS?
 
-## Create your first React Page
+CSS stands for Cascading Style Sheets
+CSS describes how HTML elements are to be displayed on screen, paper, or in other media
+CSS saves a lot of work. It can control the layout of multiple web pages all at once
+External stylesheets are stored in CSS files
 
-Create a file at `src/pages/my-react-page.js`:
+## Why Use CSS?
 
-```jsx title="src/pages/my-react-page.js"
-import React from "react";
-import Layout from "@theme/Layout";
+CSS is used to define styles for your web pages, including the design, layout and variations in display for different devices and screen sizes.
 
-export default function MyReactPage() {
-  return (
-    <Layout>
-      <h1>My React page</h1>
-      <p>This is a React page</p>
-    </Layout>
-  );
-}
+## CSS Solved a Big Problem
+
+HTML was NEVER intended to contain tags for formatting a web page!
+
+HTML was created to describe the content of a web page, like:
+
+```html
+<h1>This is a heading</h1>
+
+<p>This is a paragraph.</p>
 ```
 
-A new page is now available at [http://localhost:3000/my-react-page](http://localhost:3000/my-react-page).
+When tags like `<font>`, and color attributes were added to the HTML 3.2 specification, it started a nightmare for web developers. Development of large websites, where fonts and color information were added to every single page, became a long and expensive process.
 
-## Create your first Markdown Page
+To solve this problem, the World Wide Web Consortium (W3C) created CSS.
 
-Create a file at `src/pages/my-markdown-page.md`:
+CSS removed the style formatting from the HTML page!
 
-```mdx title="src/pages/my-markdown-page.md"
-# My Markdown page
+CSS Saves a Lot of Work!
+The style definitions are normally saved in external .css files.
 
-This is a Markdown page
-```
-
-A new page is now available at [http://localhost:3000/my-markdown-page](http://localhost:3000/my-markdown-page).
+With an external stylesheet file, you can change the look of an entire website by changing just one file!

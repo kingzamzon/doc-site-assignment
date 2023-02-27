@@ -4,54 +4,29 @@ sidebar_position: 2
 
 # Syntax
 
-Documents are **groups of pages** connected through:
+A CSS rule consists of a selector and a declaration block.
 
-- a **sidebar**
-- **previous/next navigation**
-- **versioning**
+## CSS Syntax
 
-## Create your first Doc
+CSS selector
 
-Create a Markdown file at `docs/hello.md`:
+The selector points to the HTML element you want to style.
 
-```md title="docs/hello.md"
-# Hello
+The declaration block contains one or more declarations separated by semicolons.
 
-This is my **first Docusaurus document**!
+Each declaration includes a CSS property name and a value, separated by a colon.
+
+Multiple CSS declarations are separated with semicolons, and declaration blocks are surrounded by curly braces.
+
+```css
+p {
+  color: red;
+  text-align: center;
+}
 ```
 
-A new document is now available at [http://localhost:3000/docs/hello](http://localhost:3000/docs/hello).
+## Example Explained
 
-## Configure the Sidebar
-
-Docusaurus automatically **creates a sidebar** from the `docs` folder.
-
-Add metadata to customize the sidebar label and position:
-
-```md title="docs/hello.md" {1-4}
----
-sidebar_label: "Hi!"
-sidebar_position: 3
----
-
-# Hello
-
-This is my **first Docusaurus document**!
-```
-
-It is also possible to create your sidebar explicitly in `sidebars.js`:
-
-```js title="sidebars.js"
-module.exports = {
-  tutorialSidebar: [
-    "intro",
-    // highlight-next-line
-    "hello",
-    {
-      type: "category",
-      label: "Tutorial",
-      items: ["tutorial-basics/create-a-document"],
-    },
-  ],
-};
-```
+`p` is a selector in CSS (it points to the HTML element you want to style: `<p>`).
+`color` is a property, and red is the property value
+`text-align` is a property, and center is the property value

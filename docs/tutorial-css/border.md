@@ -4,20 +4,59 @@ sidebar_position: 11
 
 # Border
 
-You have just learned the **basics of Docusaurus** and made some changes to the **initial template**.
+The CSS border properties allow you to specify the style, width, and color of an element's border.
 
-Docusaurus has **much more to offer**!
+## CSS Border Style
 
-Have **5 more minutes**? Take a look at **[versioning](../tutorial-extras/manage-docs-versions.md)** and **[i18n](../tutorial-extras/translate-your-site.md)**.
+The `border-style` property specifies what kind of border to display.
 
-Anything **unclear** or **buggy** in this tutorial? [Please report it!](https://github.com/facebook/docusaurus/discussions/4610)
+The following values are allowed:
 
-## What's next?
+- `dotted` - Defines a dotted border
+- `dashed` - Defines a dashed border
+- `solid` - Defines a solid border
+- `double` - Defines a double border
+- `groove` - Defines a 3D grooved border. The effect depends on the border-color value
+- `ridge` - Defines a 3D ridged border. The effect depends on the border-color value
+- `inset` - Defines a 3D inset border. The effect depends on the border-color value
+- `outset` - Defines a 3D outset border. The effect depends on the border-color value
+- `none` - Defines no border
+- `hidden` - Defines a hidden border
 
-- Read the [official documentation](https://docusaurus.io/)
-- Modify your site configuration with [`docusaurus.config.js`](https://docusaurus.io/docs/api/docusaurus-config)
-- Add navbar and footer items with [`themeConfig`](https://docusaurus.io/docs/api/themes/configuration)
-- Add a custom [Design and Layout](https://docusaurus.io/docs/styling-layout)
-- Add a [search bar](https://docusaurus.io/docs/search)
-- Find inspirations in the [Docusaurus showcase](https://docusaurus.io/showcase)
-- Get involved in the [Docusaurus Community](https://docusaurus.io/community/support)
+The `border-style` property can have from one to four values (for the top border, right border, bottom border, and the left border).
+
+```css
+p.dotted {
+  border-style: dotted;
+}
+p.dashed {
+  border-style: dashed;
+}
+p.solid {
+  border-style: solid;
+}
+p.double {
+  border-style: double;
+}
+p.groove {
+  border-style: groove;
+}
+p.ridge {
+  border-style: ridge;
+}
+p.inset {
+  border-style: inset;
+}
+p.outset {
+  border-style: outset;
+}
+p.none {
+  border-style: none;
+}
+p.hidden {
+  border-style: hidden;
+}
+p.mix {
+  border-style: dotted dashed solid double;
+}
+```
