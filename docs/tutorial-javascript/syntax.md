@@ -4,85 +4,123 @@ sidebar_position: 2
 
 # Syntax
 
-Let's translate `docs/intro.md` to French.
+JavaScript syntax is the set of rules, how JavaScript programs are constructed:
 
-## Configure i18n
+```js
+// How to create variables:
+var x;
+let y;
 
-Modify `docusaurus.config.js` to add support for the `fr` locale:
-
-```js title="docusaurus.config.js"
-module.exports = {
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "fr"],
-  },
-};
+// How to use variables:
+x = 5;
+y = 6;
+let z = x + y;
 ```
 
-## Translate a doc
+## JavaScript Values
 
-Copy the `docs/intro.md` file to the `i18n/fr` folder:
+The JavaScript syntax defines two types of values:
 
-```bash
-mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
+- Fixed values
+- Variable values
 
-cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
+Fixed values are called **Literals**.
+
+Variable values are called **Variables**.
+
+## JavaScript Literals
+
+The two most important syntax rules for fixed values are:
+
+1. Numbers are written with or without decimals:
+
+```js
+10.5;
+
+1001;
 ```
 
-Translate `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` in French.
+2. Strings are text, written within double or single quotes:
 
-## Start your localized site
+```js
+"John Doe";
 
-Start your site on the French locale:
-
-```bash
-npm run start -- --locale fr
+"John Doe";
 ```
 
-Your localized site is accessible at [http://localhost:3000/fr/](http://localhost:3000/fr/) and the `Getting Started` page is translated.
+## JavaScript Variables
 
-:::caution
+In a programming language, variables are used to store data values.
 
-In development, you can only use one locale at a same time.
+JavaScript uses the keywords `var`, `let` and `const` to declare variables.
 
-:::
+An equal sign is used to assign values to variables.
 
-## Add a Locale Dropdown
+In this example, x is defined as a variable. Then, x is assigned (given) the value 6:
 
-To navigate seamlessly across languages, add a locale dropdown.
-
-Modify the `docusaurus.config.js` file:
-
-```js title="docusaurus.config.js"
-module.exports = {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: "localeDropdown",
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
+```js
+let x;
+x = 6;
 ```
 
-The locale dropdown now appears in your navbar:
+## JavaScript Operators
 
-![Locale Dropdown](./img/localeDropdown.png)
+JavaScript uses arithmetic operators ( `+` `-` `*` `/` ) to compute values:
 
-## Build your localized site
-
-Build your site for a specific locale:
-
-```bash
-npm run build -- --locale fr
+```js
+(5 + 6) * 10;
 ```
 
-Or build your site to include all the locales at once:
+JavaScript uses an assignment operator ( = ) to assign values to variables:
 
-```bash
-npm run build
+```js
+let x, y;
+x = 5;
+y = 6;
+```
+
+## JavaScript Expressions
+
+An expression is a combination of values, variables, and operators, which computes to a value.
+
+The computation is called an evaluation.
+
+For example, 5 \* 10 evaluates to 50:
+
+```js
+5 * 10;
+```
+
+Expressions can also contain variable values:
+
+```js
+x * 10;
+```
+
+The values can be of various types, such as numbers and strings.
+
+For example, "John" + " " + "Doe", evaluates to "John Doe":
+
+```js
+"John" + " " + "Doe";
+```
+
+## JavaScript Keywords
+
+JavaScript keywords are used to identify actions to be performed.
+
+The let keyword tells the browser to create variables:
+
+```js
+let x, y;
+x = 5 + 6;
+y = x * 10;
+```
+
+The var keyword also tells the browser to create variables:
+
+```js
+var x, y;
+x = 5 + 6;
+y = x * 10;
 ```

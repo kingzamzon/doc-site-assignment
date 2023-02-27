@@ -4,52 +4,60 @@ sidebar_position: 1
 
 # Introduction
 
-Docusaurus can manage multiple versions of your docs.
+JavaScript is the world's most popular programming language.
 
-## Create a docs version
+JavaScript is the programming language of the Web.
 
-Release a version 1.0 of your project:
+JavaScript is easy to learn.
 
-```bash
-npm run docusaurus docs:version 1.0
+This tutorial will teach you JavaScript from basic to advanced.
+
+## JavaScript Can Change HTML Content
+
+One of many JavaScript HTML methods is getElementById().
+
+The example below "finds" an HTML element (with id="demo"), and changes the element content (innerHTML) to "Hello JavaScript":
+
+```js
+document.getElementById("demo").innerHTML = "Hello JavaScript";
 ```
 
-The `docs` folder is copied into `versioned_docs/version-1.0` and `versions.json` is created.
+:::note
+JavaScript accepts both double and single quotes:
+:::
 
-Your docs now have 2 versions:
-
-- `1.0` at `http://localhost:3000/docs/` for the version 1.0 docs
-- `current` at `http://localhost:3000/docs/next/` for the **upcoming, unreleased docs**
-
-## Add a Version Dropdown
-
-To navigate seamlessly across versions, add a version dropdown.
-
-Modify the `docusaurus.config.js` file:
-
-```js title="docusaurus.config.js"
-module.exports = {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: "docsVersionDropdown",
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
+```js
+document.getElementById("demo").innerHTML = "Hello JavaScript";
 ```
 
-The docs version dropdown appears in your navbar:
+## JavaScript Can Change HTML Styles (CSS)
 
-![Docs Version Dropdown](./img/docsVersionDropdown.png)
+Changing the style of an HTML element, is a variant of changing an HTML attribute:
 
-## Update an existing version
+```js
+document.getElementById("demo").style.fontSize = "35px";
+```
 
-It is possible to edit versioned docs in their respective folder:
+## JavaScript Can Hide HTML Elements
 
-- `versioned_docs/version-1.0/hello.md` updates `http://localhost:3000/docs/hello`
-- `docs/hello.md` updates `http://localhost:3000/docs/next/hello`
+Hiding HTML elements can be done by changing the display style:
+
+```js
+document.getElementById("demo").style.display = "none";
+```
+
+## JavaScript Can Show HTML Elements
+
+Showing hidden HTML elements can also be done by changing the display style:
+
+```js
+document.getElementById("demo").style.display = "block";
+```
+
+:::note
+JavaScript and Java are completely different languages, both in concept and design.
+
+JavaScript was invented by Brendan Eich in 1995, and became an ECMA standard in 1997.
+
+ECMA-262 is the official name of the standard. ECMAScript is the official name of the language.
+:::

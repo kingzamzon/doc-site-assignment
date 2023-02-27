@@ -4,85 +4,85 @@ sidebar_position: 5
 
 # operators
 
-Let's translate `docs/intro.md` to French.
+The Assignment Operator (=) assigns a value to a variable.
 
-## Configure i18n
-
-Modify `docusaurus.config.js` to add support for the `fr` locale:
-
-```js title="docusaurus.config.js"
-module.exports = {
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "fr"],
-  },
-};
+```js
+let x = 10;
 ```
 
-## Translate a doc
-
-Copy the `docs/intro.md` file to the `i18n/fr` folder:
-
-```bash
-mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
-
-cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
+```js
+// Assign the value 5 to x
+let x = 5;
+// Assign the value 2 to y
+let y = 2;
+// Assign the value x + y to z:
+let z = x + y;
 ```
 
-Translate `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` in French.
+The **Addition Operator** (`+`) adds numbers:
 
-## Start your localized site
-
-Start your site on the French locale:
-
-```bash
-npm run start -- --locale fr
+```js
+let x = 5;
+let y = 2;
+let z = x + y;
 ```
 
-Your localized site is accessible at [http://localhost:3000/fr/](http://localhost:3000/fr/) and the `Getting Started` page is translated.
+The **Multiplication Operator** (`*`) multiplies numbers.
 
-:::caution
-
-In development, you can only use one locale at a same time.
-
-:::
-
-## Add a Locale Dropdown
-
-To navigate seamlessly across languages, add a locale dropdown.
-
-Modify the `docusaurus.config.js` file:
-
-```js title="docusaurus.config.js"
-module.exports = {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: "localeDropdown",
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
+```js
+let x = 5;
+let y = 2;
+let z = x * y;
 ```
 
-The locale dropdown now appears in your navbar:
+## Types of JavaScript Operators
 
-![Locale Dropdown](./img/localeDropdown.png)
+There are different types of JavaScript operators:
 
-## Build your localized site
+- Arithmetic Operators
+- Assignment Operators
+- Comparison Operators
+- Logical Operators
+- Conditional Operators
+- Type Operators
 
-Build your site for a specific locale:
+## JavaScript Arithmetic Operators
 
-```bash
-npm run build -- --locale fr
+**Arithmetic Operators** are used to perform arithmetic on numbers:
+
+```js
+let a = 3;
+let x = (100 + 50) * a;
 ```
 
-Or build your site to include all the locales at once:
+| Operator | Description                  |
+| -------- | ---------------------------- |
+| +        | Addition                     |
+| -        | Subtraction                  |
+| \*       | Multiplication               |
+| \*\*     | Exponentiation (ES2016)      |
+| /        | Division                     |
+| %        | Modulus (Division Remainder) |
+| ++       | Increment                    |
+| --       | Decrement                    |
 
-```bash
-npm run build
+## JavaScript Assignment Operators
+
+Assignment operators assign values to JavaScript variables.
+
+The Addition Assignment Operator (`+=`) adds a value to a variable.
+
+```js
+let x = 10;
+x += 5;
 ```
+
+| Operator | Example   | Same As      |
+| -------- | --------- | ------------ |
+| =        | x = y     | x = y        |
+| +=       | x += y    | x = x + y    |
+| -=       | x -= y    | x = x - y    |
+| \*=      | x \*= y   | x = x \* y   |
+| /=       | x /= y    | x = x / y    |
+| %=       | x %= y    | x = x % y    |
+| \*\*=    | x \*\*= y | x = x \*\* y |
