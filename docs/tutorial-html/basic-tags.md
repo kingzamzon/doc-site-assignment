@@ -4,85 +4,95 @@ sidebar_position: 5
 
 # Basic Tags
 
-Let's translate `docs/intro.md` to French.
+In this chapter we will show some basic HTML examples.
 
-## Configure i18n
+Don't worry if we use tags you have not learned about yet.
 
-Modify `docusaurus.config.js` to add support for the `fr` locale:
+## HTML Documents
 
-```js title="docusaurus.config.js"
-module.exports = {
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "fr"],
-  },
-};
+All HTML documents must start with a document type declaration: `<!DOCTYPE html>`.
+
+The HTML document itself begins with `<html>` and ends with `</html>`.
+
+The visible part of the HTML document is between `<body>` and `</body>`.
+
+```html
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>My First Heading</h1>
+    <p>My first paragraph.</p>
+  </body>
+</html>
 ```
 
-## Translate a doc
+## The <!DOCTYPE> Declaration
 
-Copy the `docs/intro.md` file to the `i18n/fr` folder:
+The `<!DOCTYPE>` declaration represents the document type, and helps browsers to display web pages correctly.
 
-```bash
-mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
+It must only appear once, at the top of the page (before any HTML tags).
 
-cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
+The `<!DOCTYPE>` declaration is not case sensitive.
+
+The `<!DOCTYPE>` declaration for HTML5 is:
+
+```html
+<!DOCTYPE html>
 ```
 
-Translate `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` in French.
+## HTML Headings
 
-## Start your localized site
+HTML headings are defined with the `<h1>` to `<h6>` tags.
 
-Start your site on the French locale:
+`<h1>` defines the most important heading. `<h6>` defines the least important heading:
 
-```bash
-npm run start -- --locale fr
+```html
+<h1>This is heading 1</h1>
+<h2>This is heading 2</h2>
+<h3>This is heading 3</h3>
 ```
 
-Your localized site is accessible at [http://localhost:3000/fr/](http://localhost:3000/fr/) and the `Getting Started` page is translated.
+## HTML Paragraphs
 
-:::caution
+HTML paragraphs are defined with the `<p>` tag:
 
-In development, you can only use one locale at a same time.
-
-:::
-
-## Add a Locale Dropdown
-
-To navigate seamlessly across languages, add a locale dropdown.
-
-Modify the `docusaurus.config.js` file:
-
-```js title="docusaurus.config.js"
-module.exports = {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: "localeDropdown",
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
+```html
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
 ```
 
-The locale dropdown now appears in your navbar:
+## HTML Links
 
-![Locale Dropdown](./img/localeDropdown.png)
+HTML links are defined with the `<a>` tag:
 
-## Build your localized site
-
-Build your site for a specific locale:
-
-```bash
-npm run build -- --locale fr
+```html
+<a href="https://www.w3schools.com">This is a link</a>
 ```
 
-Or build your site to include all the locales at once:
+The link's destination is specified in the href attribute.
 
-```bash
-npm run build
+Attributes are used to provide additional information about HTML elements.
+
+You will learn more about attributes in a later chapter.
+
+## HTML Images
+
+HTML images are defined with the `<img>` tag.
+
+The source file (`src`), alternative text (`alt`), `width`, and `height` are provided as attributes:
+
+```html
+<img src="w3schools.jpg" alt="W3Schools.com" width="104" height="142" />
 ```
+
+## How to View HTML Source
+
+Have you ever seen a Web page and wondered "Hey! How did they do that?"
+
+## View HTML Source Code:
+
+Right-click in an HTML page and select "View Page Source" (in Chrome) or "View Source" (in Edge), or similar in other browsers. This will open a window containing the HTML source code of the page.
+
+## Inspect an HTML Element:
+
+Right-click on an element (or a blank area), and choose "Inspect" or "Inspect Element" to see what elements are made up of (you will see both the HTML and the CSS). You can also edit the HTML or CSS on-the-fly in the Elements or Styles panel that opens.

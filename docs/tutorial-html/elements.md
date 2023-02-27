@@ -4,85 +4,123 @@ sidebar_position: 6
 
 # Elements
 
-Let's translate `docs/intro.md` to French.
+An HTML element is defined by a start tag, some content, and an end tag.
 
-## Configure i18n
+## HTML Elements
 
-Modify `docusaurus.config.js` to add support for the `fr` locale:
+The HTML element is everything from the start tag to the end tag:
 
-```js title="docusaurus.config.js"
-module.exports = {
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "fr"],
-  },
-};
-```
+`<tagname>`Content goes here...`</tagname>`
 
-## Translate a doc
+Examples of some HTML elements:
 
-Copy the `docs/intro.md` file to the `i18n/fr` folder:
+`<h1>`My First Heading`</h1>`
+`<p>`My first paragraph.`</p>`
 
-```bash
-mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
+| Start tag | Element content     | End tag |
+| --------- | ------------------- | ------- |
+| `<h1>`    | My First Heading    | `</h1>` |
+| `<p>`     | My first paragraph. | `</p>`  |
+| `<br>`    | none                | none    |
 
-cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
-```
+:::note
 
-Translate `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` in French.
-
-## Start your localized site
-
-Start your site on the French locale:
-
-```bash
-npm run start -- --locale fr
-```
-
-Your localized site is accessible at [http://localhost:3000/fr/](http://localhost:3000/fr/) and the `Getting Started` page is translated.
-
-:::caution
-
-In development, you can only use one locale at a same time.
+Some HTML elements have no content (like the `<br>` element). These elements are called empty elements. Empty elements do not have an end tag!
 
 :::
 
-## Add a Locale Dropdown
+## Nested HTML Elements
 
-To navigate seamlessly across languages, add a locale dropdown.
+HTML elements can be nested (this means that elements can contain other elements).
 
-Modify the `docusaurus.config.js` file:
+All HTML documents consist of nested HTML elements.
 
-```js title="docusaurus.config.js"
-module.exports = {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: "localeDropdown",
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
+The following example contains four HTML elements (`<html>`, `<body>`, `<h1>` and `<p>`):
+
+```html
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>My First Heading</h1>
+    <p>My first paragraph.</p>
+  </body>
+</html>
 ```
 
-The locale dropdown now appears in your navbar:
+## Example Explained
 
-![Locale Dropdown](./img/localeDropdown.png)
+The `<html>` element is the root element and it defines the whole HTML document.
 
-## Build your localized site
+It has a start tag `<html>` and an end tag `</html>`.
 
-Build your site for a specific locale:
+Then, inside the `<html>` element there is a `<body>` element:
 
-```bash
-npm run build -- --locale fr
+```html
+<body>
+  <h1>My First Heading</h1>
+  <p>My first paragraph.</p>
+</body>
 ```
 
-Or build your site to include all the locales at once:
+The `<body>` element defines the document's body.
 
-```bash
-npm run build
+It has a start tag `<body>` and an end tag `</body>`.
+
+Then, inside the `<body>` element there are two other elements: `<h1>` and `<p>`:
+
+```html
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
 ```
+
+The `<h1>` element defines a heading.
+
+It has a start tag `<h1>` and an end tag `</h1>`:
+
+```html
+<h1>My First Heading</h1>
+```
+
+The `<p>` element defines a paragraph.
+
+It has a start tag `<p>` and an end tag `</p>`:
+
+```html
+<p>My first paragraph.</p>
+```
+
+## Never Skip the End Tag
+
+Some HTML elements will display correctly, even if you forget the end tag:
+
+```html
+<html>
+  <body>
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+  </body>
+</html>
+```
+
+**However, never rely on this! Unexpected results and errors may occur if you forget the end tag!**
+
+## Empty HTML Elements
+
+HTML elements with no content are called empty elements.
+
+The `<br>` tag defines a line break, and is an empty element without a closing tag:
+
+```html
+<p>
+  This is a <br />
+  paragraph with a line break.
+</p>
+```
+
+## HTML is Not Case Sensitive
+
+HTML tags are not case sensitive: `<P>` means the same as `<p>`.
+
+The HTML standard does not require lowercase tags, but W3C recommends lowercase in HTML, and demands lowercase for stricter document types like XHTML.
+
+**At W3Schools we always use lowercase tag names.**

@@ -6,83 +6,31 @@ sidebar_position: 4
 
 Let's translate `docs/intro.md` to French.
 
-## Configure i18n
+## Step 1: Open Notepad (PC)
 
-Modify `docusaurus.config.js` to add support for the `fr` locale:
+Falling deep
 
-```js title="docusaurus.config.js"
-module.exports = {
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "fr"],
-  },
-};
+## Step 2: Write Some HTML
+
+Write or copy the following HTML code into Notepad:
+
+```html title="index.html"
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>Hello World</p>
+  </body>
+</html>
 ```
 
-## Translate a doc
+## Step 3: Save the HTML Page
 
-Copy the `docs/intro.md` file to the `i18n/fr` folder:
+Save the file on your computer. Select File > Save as in the Notepad menu.
 
-```bash
-mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
+## Step 4: View the HTML Page in Your Browser
 
-cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
-```
+Open the saved HTML file in your favorite browser (double click on the file, or right-click - and choose "Open with").
 
-Translate `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` in French.
+The result will look much like this:
 
-## Start your localized site
-
-Start your site on the French locale:
-
-```bash
-npm run start -- --locale fr
-```
-
-Your localized site is accessible at [http://localhost:3000/fr/](http://localhost:3000/fr/) and the `Getting Started` page is translated.
-
-:::caution
-
-In development, you can only use one locale at a same time.
-
-:::
-
-## Add a Locale Dropdown
-
-To navigate seamlessly across languages, add a locale dropdown.
-
-Modify the `docusaurus.config.js` file:
-
-```js title="docusaurus.config.js"
-module.exports = {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: "localeDropdown",
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
-```
-
-The locale dropdown now appears in your navbar:
-
-![Locale Dropdown](./img/localeDropdown.png)
-
-## Build your localized site
-
-Build your site for a specific locale:
-
-```bash
-npm run build -- --locale fr
-```
-
-Or build your site to include all the locales at once:
-
-```bash
-npm run build
-```
+## W3Schools Online Editor - "Try it Yourself"

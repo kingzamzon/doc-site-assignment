@@ -4,85 +4,71 @@ sidebar_position: 8
 
 # Comments
 
-Let's translate `docs/intro.md` to French.
+HTML comments are not displayed in the browser, but they can help document your HTML source code.
 
-## Configure i18n
+## HTML Comment Tag
 
-Modify `docusaurus.config.js` to add support for the `fr` locale:
+You can add comments to your HTML source by using the following syntax:
 
-```js title="docusaurus.config.js"
-module.exports = {
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "fr"],
-  },
-};
+```html
+<!-- Write your comments here -->
 ```
 
-## Translate a doc
+Notice that there is an exclamation point (!) in the start tag, but not in the end tag.
 
-Copy the `docs/intro.md` file to the `i18n/fr` folder:
+:::note
 
-```bash
-mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
-
-cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
-```
-
-Translate `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` in French.
-
-## Start your localized site
-
-Start your site on the French locale:
-
-```bash
-npm run start -- --locale fr
-```
-
-Your localized site is accessible at [http://localhost:3000/fr/](http://localhost:3000/fr/) and the `Getting Started` page is translated.
-
-:::caution
-
-In development, you can only use one locale at a same time.
+Comments are not displayed by the browser, but they can help document your HTML source code.
 
 :::
 
-## Add a Locale Dropdown
+## Add Comments
 
-To navigate seamlessly across languages, add a locale dropdown.
+With comments you can place notifications and reminders in your HTML code:
 
-Modify the `docusaurus.config.js` file:
+```html
+<!-- This is a comment -->
 
-```js title="docusaurus.config.js"
-module.exports = {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: "localeDropdown",
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
+<p>This is a paragraph.</p>
+
+<!-- Remember to add more information here -->
 ```
 
-The locale dropdown now appears in your navbar:
+## Hide Content
 
-![Locale Dropdown](./img/localeDropdown.png)
+Comments can be used to hide content.
 
-## Build your localized site
+This can be helpful if you hide content temporarily:
 
-Build your site for a specific locale:
+```html
+<p>This is a paragraph.</p>
 
-```bash
-npm run build -- --locale fr
+<!-- <p>This is another paragraph </p> -->
+
+<p>This is a paragraph too.</p>
 ```
 
-Or build your site to include all the locales at once:
+You can also hide more than one line. Everything between the `<!-- and the -->` will be hidden from the display.
 
-```bash
-npm run build
+```html
+<p>This is a paragraph.</p>
+<!--
+<p>Look at this cool image:</p>
+<img border="0" src="pic_trulli.jpg" alt="Trulli">
+-->
+<p>This is a paragraph too.</p>
+```
+
+Comments are also great for debugging HTML, because you can comment out HTML lines of code, one at a time, to search for errors.
+
+## Hide Inline Content
+
+Comments can be used to hide parts in the middle of the HTML code.
+
+```html
+<p>
+  This
+  <!-- great text -->
+  is a paragraph.
+</p>
 ```

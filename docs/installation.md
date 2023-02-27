@@ -4,44 +4,47 @@ sidebar_position: 2
 
 # Installation
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Web development have been built on 3 languages so far: HTML, CSS and JavaScript.
 
 ## Getting Started
 
-Get started by **creating a new site**.
+Get started by **creating a new project on your laptop**.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+Or **try CodePen** with **[codepen.io](https://codepen.io/kingzamzon/pen/ExeNwKz)**.
 
 ### What you'll need this
 
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+- [Google Chrome](https://www.google.com/chrome/) Browser:
+  - Though you can use any choice browser.
+- [Visual Studio Code](https://code.visualstudio.com/) is a code editor:
+  - We using visual studio code cause of its make development faster with suggestion and autocompletion.
 
-## Generate a new site
+## Generate a new Project
 
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
+Generate a new Project in your laptop by creating a folder, run the command:
 
 ```bash
-npm init docusaurus@latest my-website classic
+mkdir html-tutorial
 ```
 
 You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
 
 ## Start your site
 
 Run the development server:
 
 ```bash
-cd my-website
-npm run start
+cd html-tutorial
 ```
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+The `cd` command changes the directory you're working with.
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+Open `target file` (this page) and edit some lines: the site **won't reloads automatically** and reload the page anytime changes are made.
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+## Web Browsers
+
+The purpose of a web browser (Chrome, Edge, Firefox, Safari) is to read HTML documents and display them correctly.
+
+A browser does not display the HTML tags, but uses them to determine how to display the document:
+
+![Web Browser](./tutorial-html/img/webBrowser.png)

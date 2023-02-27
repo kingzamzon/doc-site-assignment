@@ -4,85 +4,105 @@ sidebar_position: 10
 
 # Tables
 
-Let's translate `docs/intro.md` to French.
+HTML tables allow web developers to arrange data into rows and columns.
 
-## Configure i18n
+## Define an HTML Table
 
-Modify `docusaurus.config.js` to add support for the `fr` locale:
+A table in HTML consists of table cells inside rows and columns.
 
-```js title="docusaurus.config.js"
-module.exports = {
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "fr"],
-  },
-};
+```html
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+  </tr>
+</table>
 ```
 
-## Translate a doc
+## Table Cells
 
-Copy the `docs/intro.md` file to the `i18n/fr` folder:
+Each table cell is defined by a `<td>` and a `</td>` tag.
 
-```bash
-mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
+`td` stands for table data.
 
-cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
+Everything between `<td>` and `</td>` are the content of the table cell.
+
+```html
+<table>
+  <tr>
+    <td>Emil</td>
+    <td>Tobias</td>
+    <td>Linus</td>
+  </tr>
+</table>
 ```
 
-Translate `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` in French.
-
-## Start your localized site
-
-Start your site on the French locale:
-
-```bash
-npm run start -- --locale fr
-```
-
-Your localized site is accessible at [http://localhost:3000/fr/](http://localhost:3000/fr/) and the `Getting Started` page is translated.
-
-:::caution
-
-In development, you can only use one locale at a same time.
-
+:::note
+A table cell can contain all sorts of HTML elements: text, images, lists, links, other tables, etc.
 :::
 
-## Add a Locale Dropdown
+## Table Rows
 
-To navigate seamlessly across languages, add a locale dropdown.
+Each table row starts with a `<tr>` and ends with a `</tr>` tag.
 
-Modify the `docusaurus.config.js` file:
+`tr` stands for table row.
 
-```js title="docusaurus.config.js"
-module.exports = {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: "localeDropdown",
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
+```html
+<table>
+  <tr>
+    <td>Emil</td>
+    <td>Tobias</td>
+    <td>Linus</td>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td>14</td>
+    <td>10</td>
+  </tr>
+</table>
 ```
 
-The locale dropdown now appears in your navbar:
+You can have as many rows as you like in a table; just make sure that the number of cells are the same in each row.
 
-![Locale Dropdown](./img/localeDropdown.png)
+:::note
+There are times when a row can have less or more cells than another. You will learn about that in a later chapter.
+:::
 
-## Build your localized site
+## Table Headers
 
-Build your site for a specific locale:
+Sometimes you want your cells to be table header cells. In those cases use the `<th>` tag instead of the `<td>` tag:
 
-```bash
-npm run build -- --locale fr
+`th` stands for table header.
+
+```html
+<table>
+  <tr>
+    <th>Person 1</th>
+    <th>Person 2</th>
+    <th>Person 3</th>
+  </tr>
+  <tr>
+    <td>Emil</td>
+    <td>Tobias</td>
+    <td>Linus</td>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td>14</td>
+    <td>10</td>
+  </tr>
+</table>
 ```
 
-Or build your site to include all the locales at once:
-
-```bash
-npm run build
-```
+By default, the text in `<th>` elements are bold and centered, but you can change that with CSS.
